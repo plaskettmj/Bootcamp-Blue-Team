@@ -1,0 +1,27 @@
+import sys
+from subprocess import PIPE, Popen
+
+def commandLine(command):
+    process = Popen(
+        args = command,
+        stdout = PIPE,
+        shell = True,
+        universal_newlines = True
+    )
+    return process.communicate()[0]
+
+pcapFile = sys.argv(1)
+outputFileName = pcapFile.strip('.')[0]+'_stream.txt'
+outputFile = open(outputFileName,'w')
+count = 0
+while True:
+    commandLineInput = 'tshark -r %s -z follow, tcp, ascii, %s'%(pcapFile,count)
+    stream = commandLine(commandLineInput)
+    stream = stream.split('====================================================================================\n')[1]
+    stream += '\n----------------------------\n'
+    if 'Node 0: :0' not in stream:
+        outputFile.write(stream)
+    else:
+        break
+    count += 1
+outputFile.close()

@@ -8,6 +8,5 @@ This script will take each TCP stream and report out the ip addresses of the two
 
 The output of this file is a txt document which can be edited and searched using a program such as VIM.
 
-For a full breakdown line by line of what each line does and why its included. Please see my portfolio website - michaelplasekttcybersecurityportfolio.xyz
+For a full breakdown line by line of what each line does and why its included. Please see this article on my portfolio website - https://michaelplaskettcybersecurityportfolio.xyz/?p=29
 
-The writeup may not be available until June 13th 2023.
